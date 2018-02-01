@@ -42,8 +42,12 @@ function showForm(){
 		foreach($config->items as $items)
     {
     echo '<p>' . $items->Name . ' <input type="text" name="item_' . $items->ID . '" /></p>';
-
-        }
+    }
+    //Loops through the Extras
+            foreach($items->Extras as $extra)
+              {
+                  echo '<p>' . $extra . '<input type="checkbox" name="extra_' . $extra . '" /></p>';
+              }
 
     echo '
       <p>
@@ -73,9 +77,10 @@ function showData(){
       $total += (int)$total;
 
 }
+
 }
 echo '<p>You ordered' . $value . 'of item number'. $ID . '</p>';
-echo '<p>Your total is: ' . $total . '</p>';
+echo '<p>Your total is: $' . $total . '</p>';
 
 echo '<p align="center"><a href="' . THIS_PAGE . '">RESET</a></p>';
 get_footer(); #defaults to footer_inc.php
